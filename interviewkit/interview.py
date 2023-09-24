@@ -11,6 +11,14 @@ class Interview(object):
         self.interviewee = interviewee
         self.status = "In Progress"
 
+    def start_recording(self):
+        """ Start recording audio. """
+        self.status = "Recording"
+
+    def stop_recording(self):
+        """ Stop recording audio. """
+        self.status = "Recorded"
+
     def start_transcription(self):
         self.status = "Transcribing"
         self.transcript = []
