@@ -160,7 +160,7 @@ cython_debug/
 #.idea/
 
 # macOS
+.DS_Store
 
 # Keep large media files out of the repo
 data/Martine+Barrat_FINAL.mp3
-.DS_Store
