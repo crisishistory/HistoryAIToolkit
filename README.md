@@ -4,8 +4,18 @@ AI toolkit for professional and amateur historians, and for anyone who wishes to
 
 ## Sample Data
 
-TODO: Get first 5 minutes of this interview with Martine Barrat:
-https://wayback.archive-it.org/14173/20200910203008mp_/http://oralhistory.nypl.org/interviews/martine-barrat-vlsin5
+Taken from [this interview](https://wayback.archive-it.org/14173/20200910203008mp_/http://oralhistory.nypl.org/interviews/martine-barrat-vlsin5
+).
+
+```bash
+wget https://wayback.archive-it.org/14173/20200910203008/https://s3.amazonaws.com/oral-history/audio/Martine+Barrat_FINAL.mp3
+```
+
+Next, get the first 5 minutes of data:
+
+```bash
+python interviewkit/sampler.py data/Martine+Barrat_FINAL.mp3 2
+```
 
 * [ ] Put it in data/
 
