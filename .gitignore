@@ -159,7 +159,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-
-# Keep large media files out of the repo
+# macOS
 data/Martine+Barrat_FINAL.mp3
 .DS_Store
