@@ -2,6 +2,10 @@
 
 AI toolkit for professional and amateur historians, and for anyone who wishes to contribute to the recording of history by and for the community.
 
+## Status
+
+The code in here is a proof-of-concept to give you an idea of what we're building. It doesn't work yet. It will probably all be changed completely.
+
 ## Prototype
 
 The scope of the prototype we hope to complete at PyCon UK is:
