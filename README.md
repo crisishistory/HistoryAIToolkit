@@ -2,6 +2,8 @@
 
 AI toolkit for professional and amateur historians, and for anyone who wishes to contribute to the recording of history by and for the community.
 
+Join our Discord server: https://discord.gg/TYNuHfEj
+
 ## Project goals and scope
 Some time ago Audrey come in contact with a group of historians working on interviews of survivors of relevant historical events.   
 With the goal of avoiding that this highly valuable first-hand knowledge to be lost down the timeline.  
