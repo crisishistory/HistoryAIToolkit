@@ -9,9 +9,15 @@ on:
 
 jobs:
   build:
-    runs-on: python:3.11-slim
+    runs-on: ubuntu:latest
+    
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set up Python 3.10 # trying to see if ubuntu can run the job, needs to add python set-up.
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
