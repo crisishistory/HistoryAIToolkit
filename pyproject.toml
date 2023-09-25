@@ -9,6 +9,7 @@ license= "GPL-2.0-or-later"
 [tool.poetry.dependencies]
 python = "^3.11"
 openai = "^0.28.0"
+pydantic-settings = "^2.0.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
