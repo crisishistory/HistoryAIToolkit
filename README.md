@@ -17,5 +17,5 @@ The scope of the demo we hope to complete at PyCon UK is:
 * [ ] Transcribe the audio file using a (preferably free) transcription package or API
 * [ ] Save the transcription to a text file
 * [ ] Print the transcription to the console
-* [ ] Pass the text to an LLM package or API to generate a list of follow-up interview questions
+* [ ] Pass the text to a (preferably free) LLM package or API to generate a list of follow-up interview questions
 * [ ] Print the questions to the console
