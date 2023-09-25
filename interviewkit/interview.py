@@ -28,7 +28,7 @@ class Interview(object):
 
     def start_transcription(self) -> None:
         self.status = "Transcribing"
-        self.transcript = []
+        self.transcript = []  # TODO: Use object Transcript instead of list?
 
     def add_to_transcript(self, speech: str) -> None:
         self.transcript.append(speech)
