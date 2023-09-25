@@ -26,3 +26,16 @@ https://www.kaggle.com/datasets/audreyfeldroy/oral-history-audio-interviews
 
 Sample oral history interviews, some with transcripts we can work with:
 * https://wayback.archive-it.org/14173/20200827171043/http://transcribe.oralhistory.nypl.org/
+
+## Getting started
+
+To get started, you can either install it using `poetry` and running`
+```
+poetry install
+```
+or you can use `pip` and run
+```
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
