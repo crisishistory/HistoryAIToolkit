@@ -9,14 +9,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: python:3.11-slim
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
 
       - name: Install dependencies
         run: |
@@ -24,4 +19,4 @@ jobs:
           pip install pytest
 
       - name: Test with pytest
-        run: python -m pytest ../../tests/tests.py
+        run: python -m pytest ./tests/tests.py
