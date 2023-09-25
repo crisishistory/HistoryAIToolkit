@@ -1,4 +1,5 @@
 from enum import StrEnum, auto
+from pydantic import BaseModel, NonNegativeInt
 
 
 class Gender(StrEnum):
@@ -7,10 +8,9 @@ class Gender(StrEnum):
     OTHER = auto()
 
 
-class Interviewee:
+class Interviewee(BaseModel):
     """An Interviewee is a person who is interviewed."""
 
-    def __init__(self, name: str, age: int, gender: Gender):
-        self.name = name
-        self.age = age
-        self.gender = gender
+    name: str
+    age: NonNegativeInt
+    gender: Gender
