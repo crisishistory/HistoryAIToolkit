@@ -23,3 +23,6 @@ The scope of the prototype we hope to complete at PyCon UK is:
 
 To experiment with this project using a recorded interview for test purposes, download one or more of the audio files from:
 https://www.kaggle.com/datasets/audreyfeldroy/oral-history-audio-interviews
+
+Sample oral history interviews, some with transcripts we can work with:
+* https://wayback.archive-it.org/14173/20200827171043/http://transcribe.oralhistory.nypl.org/
