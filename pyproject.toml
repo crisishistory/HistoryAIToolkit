@@ -15,6 +15,7 @@ pydantic = "^2.3.0"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
 sphinx = "^7.2.6"
+myst-parser = "^2.0.0"
 
 [build-system]
 requires = ["poetry-core"]

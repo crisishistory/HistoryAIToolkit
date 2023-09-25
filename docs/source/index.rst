@@ -17,3 +17,12 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   README_link
