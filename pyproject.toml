@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "historyaitoolkit"
+version = "0.0.1"
+description = "AI toolkit for professional and amateur historians, and for anyone who wishes to contribute to the recording of history by and for the community."
+authors = ["Audrey Roy Greenfeld <audrey@feldroy.com>"]
+readme = "README.md"
+license= "GPL-2.0-or-later"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^0.28.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
