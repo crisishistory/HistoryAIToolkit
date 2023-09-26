@@ -1,17 +1,11 @@
 import os
 
-import openai
-
 from interview import Interview
 from interviewee import Interviewee
 from transcript import Transcript
 from settings import Settings
 
-
-# Set the OpenAI API key
 settings = Settings()
-openai.api_key = settings.OPENAI_API_KEY
-
 
 if __name__ == "__main__":
     interviewee = Interviewee("John Doe", 60, "Male")
