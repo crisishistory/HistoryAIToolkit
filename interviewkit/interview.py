@@ -1,6 +1,5 @@
 from random import choice
 from interviewee import Interviewee
-import openai
 from enum import StrEnum, auto
 
 
@@ -40,20 +39,15 @@ class Interview(object):
         self.transcript = " ".join(self.transcript)
 
     def suggest_questions(self) -> str:
-        """Use the OpenAI API to suggest questions based on the transcript content."""
+        """suggest questions based on the transcript content."""
         suggested_questions = self.generate_questions(self.transcript)
         return suggested_questions
 
     def generate_questions(self, content: str) -> list[str]:
-        """Call the OpenAI API to generate questions, and return them."""
-        response = openai.Completion.create(
-            engine="text-davinci-002",
-            prompt=f"Generate interview questions based on the following transcript:\n{content}\n",
-            max_tokens=50,  # Adjust the max tokens as needed
-            n=5,  # Number of questions to generate
-            stop=None,
-            temperature=0.7,  # Adjust the temperature for creativity
-        )
+        """generate questions, and return them."""
+
+        #TODO
+        response = None
 
         # Extract and return the generated questions
         generated_questions = [choice["text"].strip() for choice in response.choices]
