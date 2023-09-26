@@ -1,6 +1,5 @@
 import os
 
-from dotenv import load_dotenv
 import openai
 
 from interview import Interview
@@ -8,9 +7,6 @@ from interviewee import Interviewee
 from transcript import Transcript
 from settings import Settings
 
-
-# Load the .env file into the environment
-load_dotenv()
 
 # Set the OpenAI API key
 settings = Settings()
