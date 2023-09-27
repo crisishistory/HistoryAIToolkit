@@ -20,7 +20,7 @@ def main() -> None:
     AUDIO_LOCATION = "/workspaces/HistoryAIToolkit/interviewkit/"
     AUDIO_FILENAME = "sampled-2-Martine+Barrat_FINAL.mp3"
 
-    result = MODEL.transcribe((AUDIO_LOCATION + AUDIO_FILENAME), fp16=False)
+    result = model.transcribe((AUDIO_LOCATION + AUDIO_FILENAME), fp16=False)
 
     # Save as a TXT file without any line breaks, name of the file could perhaps be changed with the slicer.py name of audio file
     with open((AUDIO_FILENAME + ".txt"), "w", encoding="utf-8") as txt:
