@@ -14,7 +14,7 @@ class Transcript(BaseModel):
 
 def main() -> None:
 
-    MODEL = whisper.load_model("base")
+    model = whisper.load_model("base")
 
     # Change this file path to be the location of the audio file, or connect it to the slicer.py file. The audio used can be a .mp3 or a .wav file
     AUDIO_LOCATION = "/workspaces/HistoryAIToolkit/interviewkit/"
