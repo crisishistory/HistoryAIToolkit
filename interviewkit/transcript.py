@@ -11,7 +11,6 @@ class Transcript(BaseModel):
 
     content: str
 
-
 def main() -> None:
 
     model = whisper.load_model("base")
