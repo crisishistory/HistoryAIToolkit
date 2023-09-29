@@ -4,6 +4,7 @@ except ImportError:
     print("Please install Whisper: pip install git+https://github.com/openai/whisper.git")
     exit(1)
 
+from whisper.utils import get_writer
 from pydantic import BaseModel
 
 class Transcript(BaseModel):
@@ -21,9 +22,22 @@ def main() -> None:
 
     result = model.transcribe((AUDIO_LOCATION + AUDIO_FILENAME), fp16=False)
 
-    # Save as a TXT file without any line breaks, name of the file could perhaps be changed with the slicer.py name of audio file
-    with open((AUDIO_FILENAME + ".txt"), "w", encoding="utf-8") as txt:
-        txt.write(result["text"])
+    transcript_output_location = "./"
+
+    # Setting some initial options values for the .txt output file
+    txt_file_options = {
+        'max_line_width': 50, # the maximum number of characters in a line before breaking the line
+        'max_line_count': 1, # the maximum number of lines in a segment
+        'highlight_words': False # underline each word as it is spoken in srt and vtt
+    }
+
+    # Save as a .txt file without line breaks, name of the file could be changed with the slicer.py name of audio file
+    # with open((AUDIO_FILENAME + ".txt"), "w", encoding="utf-8") as txt:
+    #    txt.write(result["text"])   
+
+    # Save as a .txt file with hard breaks, added for readability to user
+    txt_writer = get_writer("txt", transcript_output_location)
+    txt_writer(result, AUDIO_FILENAME, txt_file_options)
 
 if __name__ == "__main__":
     main()
