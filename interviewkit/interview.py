@@ -1,6 +1,7 @@
 from random import choice
 from interviewee import Interviewee
 from enum import StrEnum, auto
+from transcript import Transcript
 
 
 class Status(StrEnum):
@@ -13,7 +14,7 @@ class Status(StrEnum):
 class Interview(object):
     """An interview between an Interviewee and an Interviewer."""
 
-    def __init__(self, interviewee: Interviewee):
+    def __init__(self, interviewee: Interviewee, transcript: Transcript):
         self.interviewee = interviewee
         self.status = Status.IN_PROGRESS
 
@@ -26,8 +27,8 @@ class Interview(object):
         self.status = Status.RECORDED
 
     def start_transcription(self) -> None:
+        print("transcribing")
         self.status = "Transcribing"
-        self.transcript = []  # TODO: Use object Transcript instead of list?
 
     def add_to_transcript(self, speech: str) -> None:
         self.transcript.append(speech)
