@@ -6,8 +6,8 @@ It will sample the file specified for that many minutes.
 `ffmpeg` is a requirement for this to work.
 
 Example usage:
-
-    python interviewkit/sampler.py data/Martine+Barrat_FINAL.mp3 2
+    Format:  python interviewkit/slicer.py path_to_audio_file audio_start audio_end
+    Example: python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 2 3
 
 This generates:
 
@@ -31,18 +31,22 @@ if shutil.which("ffmpeg") is None:
 
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: python3 sampler.py <filepath> <number of minutes>")
+    if len(sys.argv) != 4:
+        print("Usage: python3 slicer.py <filepath> <number of minutes>")
         return
 
     path = Path(sys.argv[1])
-    minutes = int(sys.argv[2])
+    audio_start = int(sys.argv[2])
+    audio_end = int(sys.argv[3])
+    # minutes = int(sys.argv[2])
 
-    print("Sampling {} for {} minutes".format(path, minutes))
+    # print("Sampling {} for {} minutes".format(path, minutes))
+    print("Sampling {} from {} for {} minutes".format(path, audio_start, audio_end))
 
     audio = pydub.AudioSegment.from_file(path)
-    audio = audio[:minutes * 60 * 1000]
-    new_filename = f"{path.parent}/sampled-{minutes}-{path.name}"
+    # audio = audio[:minutes * 60 * 1000]
+    audio = audio[audio_start * 60 * 1000:audio_end * 60 * 1000]
+    new_filename = f"{path.parent}/sampled-{audio_start}-{audio_end}-{path.name}"
     audio.export(new_filename, format="mp3")
     print("Created new file: ", new_filename)
 
