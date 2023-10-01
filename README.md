@@ -45,13 +45,10 @@ Sample oral history interviews, some with transcripts we can work with:
 
 ## Getting started
 
-To get started, you can either install it using `poetry` and running`
-```
-poetry install
-```
-or you can use `pip` and run
+To get started, run:
+
 ```
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install '.[test]'
 ```
