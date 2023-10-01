@@ -1,21 +1,79 @@
-[tool.poetry]
-name = "historyaitoolkit"
-version = "0.0.1"
-description = "AI toolkit for professional and amateur historians, and for anyone who wishes to contribute to the recording of history by and for the community."
-authors = ["Audrey Roy Greenfeld <audrey@feldroy.com>"]
-readme = "README.md"
-license= "GPL-2.0-or-later"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-pydantic-settings = "^2.0.3"
-pydantic = "^2.3.0"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.2"
-sphinx = "^7.2.6"
-myst-parser = "^2.0.0"
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "historyaitoolkit"
+version = "0.1.0"
+description = "AI toolkit for professional and amateur oral historians"
+readme = "README.md"
+authors = [
+  {name = "Audrey M. Roy Greenfeld", email = "audrey@feldroy.com"}
+]
+maintainers = [
+  {name = "Audrey M. Roy Greenfeld", email = "audrey@feldroy.com"}
+]
+classifiers = [
+
+]
+license = {text = "GNU General Public License v3"}
+dependencies = [
+    "openai-whisper==20230918",
+    "pydantic",
+    "pydantic-settings",    
+    "pydub",
+    "typer",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",  # code auto-formatting
+    "coverage",  # testing
+    "isort",  # code auto-formatting
+    "mypy",  # linting
+    "myst-parser",  # markdown parsing
+    "pytest",  # testing
+    "ruff",  # linting
+    "sphinx"  # documentation
+]
+
+[project.urls]
+
+bugs = "https://github.com/audreyfeldroy/historyaitoolkit/issues"
+changelog = "https://github.com/audreyfeldroy/historyaitoolkit/blob/master/CHANGELOG.md"
+homepage = "https://github.com/audreyfeldroy/historyaitoolkit"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+
+[project.scripts]
+historyaitoolkit = "interviewkit.cli:app"
+
+
+# Isort
+# -----
+
+[tool.isort]
+line_length = 99
+profile = "black"
+default_section = "THIRDPARTY"
+lines_after_imports = 2
+
+
+# Mypy
+# ----
+
+[tool.mypy]
+files = "."
+
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
+
+[[tool.mypy.overrides]]
+# Don't require test functions to include types
+module = "tests.*"
+allow_untyped_defs = true
+disable_error_code = "attr-defined"
