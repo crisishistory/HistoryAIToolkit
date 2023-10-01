@@ -46,3 +46,17 @@ Sample oral history interviews, some with transcripts we can work with:
 ## Getting Started
 
 See docs/getting_started.rst
+
+To get started, run:
+
+```
+python -m venv .venv
+source .venv/bin/activate
+pip install '.[test]'
+```
+
+To use the command-line interface:
+
+```
+hist --help
+```
