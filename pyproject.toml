@@ -22,6 +22,7 @@ dependencies = [
     "pydantic",
     "pydantic-settings",    
     "pydub",
+    "rich",
     "typer",
 ]
 
