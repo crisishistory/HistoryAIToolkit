@@ -41,6 +41,7 @@ dev = [
 [project.urls]
 
 bugs = "https://github.com/audreyfeldroy/historyaitoolkit/issues"
+# TODO: Autogenerate this file following the pattern in Simplicity
 changelog = "https://github.com/audreyfeldroy/historyaitoolkit/blob/master/CHANGELOG.md"
 homepage = "https://github.com/audreyfeldroy/historyaitoolkit"
 
