@@ -161,5 +161,9 @@ cython_debug/
 
 # macOS
 .DS_Store
-poetry.lock
+
+# TODO figure out the name of this section
 .python-version
+
+# HistoryAIToolkit files
+data/
