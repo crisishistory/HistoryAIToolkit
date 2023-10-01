@@ -1,43 +1,53 @@
-try: 
+from pathlib import Path
+import sys
+
+try:
     import whisper
 except ImportError:
-    print("Please install Whisper: pip install git+https://github.com/openai/whisper.git")
+    print("Please install Whisper: pip install openai-whisper")
     exit(1)
 
 from whisper.utils import get_writer
 from pydantic import BaseModel
+
 
 class Transcript(BaseModel):
     """The Transcript entity represents the transcript of an interview."""
 
     content: str
 
-def main() -> None:
 
+def transcribe_from_paths(source: Path, target: Path) -> None:
+
+    print("Loading whisper base model...")
     model = whisper.load_model("base")
 
-    # Change this file path to be the location of the audio file, or connect it to the slicer.py file. The audio used can be a .mp3 or a .wav file
-    AUDIO_LOCATION = "/workspaces/HistoryAIToolkit/interviewkit/"
-    AUDIO_FILENAME = "sampled-2-Martine+Barrat_FINAL.mp3"
-
-    result = model.transcribe((AUDIO_LOCATION + AUDIO_FILENAME), fp16=False)
-
-    transcript_output_location = "./"
+    print("Transcribing audio file...")
+    result = model.transcribe((str(source)), fp16=False)
 
     # Setting some initial options values for the .txt output file
     txt_file_options = {
-        'max_line_width': 50, # the maximum number of characters in a line before breaking the line
-        'max_line_count': 1, # the maximum number of lines in a segment
-        'highlight_words': False # underline each word as it is spoken in srt and vtt
+        # the maximum number of characters in a line before breaking the line
+        "max_line_width": 50,  
+        # the maximum number of lines in a segment
+        "max_line_count": 1,
+        # underline each word as it is spoken in srt and vtt
+        "highlight_words": False,  
     }
 
-    # Save as a .txt file without line breaks, name of the file could be changed with the slicer.py name of audio file
-    # with open((AUDIO_FILENAME + ".txt"), "w", encoding="utf-8") as txt:
-    #    txt.write(result["text"])   
-
     # Save as a .txt file with hard breaks, added for readability to user
-    txt_writer = get_writer("txt", transcript_output_location)
-    txt_writer(result, AUDIO_FILENAME, txt_file_options)
+    print("Saving transcript as a .txt file...")
+    txt_writer = get_writer("txt", str(target))
+    txt_writer(result, source.name, txt_file_options)
+
+    print("Transcript saved to:")
+    print(f"    {target / source.name}.txt")
+
 
 if __name__ == "__main__":
-    main()
+    """Accepts an argument that is either an .mp3 or a .wav file"""
+    source = Path(sys.argv[1])
+    target = Path(sys.argv[2])
+    if source.suffix not in [".mp3", ".wav"]:
+        raise ValueError("File must be an .mp3 or .wav file")
+    transcribe_from_paths(source, target)
