@@ -3,20 +3,20 @@ This takes three args, a filepath to an audio file, audio start and audio end ti
 
 It will sample the file specified for that many minutes and seconds. 
 
-The audio start and end times currently support time in minutes and seconds only.
-Example: python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 105:40 to 107:40 
-means audio will be sliced from 105min 40sec to 107min and 40sec.
+The audio start and end times params currently support time in 2 ways either minutes and seconds or minutes only.
 
 `ffmpeg` is a requirement for this to work.
 
 Example usage:
     Format:  python interviewkit/slicer.py path_to_audio_file audio_slice_start_time audio_slice_end_time
-    Example: python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 2 3
-    Example: python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 105:40 to 107:40
+    Example 1: python interviewkit/slicer.py data/MartineBarrat_FINAL.mp3 2 3 
+             (Audio will be sliced from 2mins to 4mins)
+    Example 2: python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 70:40 80:40 
+             (Audio will be sliced from 105mins 40secs to 107mins and 40secs)
 
 This generates:
-
-    data/sampled-5-Martine+Barrat_FINAL.mp3
+    data/sampled-70m40s-80m40s-MartineBarrat_FINAL.mp3
+    data/sampled-2m-4m-MartineBarrat_FINAL.mp3
 
 """
 import sys
