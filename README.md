@@ -24,13 +24,13 @@ The code in here is a proof-of-concept to give you an idea of what we're buildin
 
 ## Prototype
 
-The scope of the prototype we hope to complete at PyCon UK is:
+The scope of the prototype we hope to complete in the 2-3 weeks following PyCon UK is:
 
 * [ ] Take interview audio in from main.py
   * [ ] Realtime microphone input
-  * [ ] Mock input from a short audio file simulating a piece of an interview
-* [ ] Transcribe the interview audio using a (preferably free) transcription package or API
-* [ ] Save the transcription to a text file
+  * [x] Mock input from a short audio file simulating a piece of an interview
+* [x] Transcribe the interview audio using a (preferably free) transcription package or API
+* [x] Save the transcription to a text file
 * [ ] Print the transcription to the console
 * [ ] Pass the text to a (preferably free) LLM package or API to generate a list of follow-up interview questions
 * [ ] Print the questions to the console
