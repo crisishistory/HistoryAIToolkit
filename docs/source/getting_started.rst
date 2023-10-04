@@ -1,5 +1,9 @@
 # Getting Started
 
+## Prerequisites
+
+TODO: check which versions of Python this works with
+
 ## For most Python users
 
 As of now the project isn't on PyPI, so you'll have to install it from source. 
@@ -15,5 +19,11 @@ pip install '.[test]'
 ```
 
 ## For Pyenv users
+
+TODO
+
+## Using the CLI
+
+Once you've installed the project, you can run the command-line interface with:
 
 TODO
