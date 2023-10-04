@@ -1,4 +1,4 @@
-# Contributing to HistoryAiToolkit
+# Contributing to History AI Toolkit
 
 First off, thanks for taking the time to contribute! ❤️
 
@@ -140,10 +140,11 @@ We need help getting the word out about this project. Please consider helping ou
 ## Styleguides
 ### Commit Messages
 
+TODO
 
-## Join The Project Team
+## Join The Core Maintainer Team
 
-
+TODO
 
 ## Attribution
 This guide is based on the **contributing.md**. [Make your own](https://contributing.md/)!
