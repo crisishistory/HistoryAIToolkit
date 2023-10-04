@@ -24,14 +24,18 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 This project and everyone participating in it is governed by the
 [CONTRIBUTING.md Code of Conduct](blob/master/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report unacceptable behavior
-to <>.
+to any of the project's core team members.
 
 
 ## I Have a Question
 
-> If you want to ask a question, we assume that you have read the available [Documentation]().
+> If you want to ask a question, we assume that you have read the available [Documentation](https://historyaitoolkit.readthedocs.io/).
 
-Before you ask a question, it is best to search for existing [Issues](/issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. It is also advisable to search the internet for answers first.
+Before you ask a question:
+
+* Search the internet for answers first. You might find a solution to your problem on Stack Overflow, Reddit, or somewhere else.
+* Search for existing [Issues](/issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. 
+
 
 If you then still feel the need to ask a question and need clarification, we recommend the following:
 
