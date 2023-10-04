@@ -26,3 +26,4 @@ Contents:
    :glob:
 
    README_link
+   getting_started
