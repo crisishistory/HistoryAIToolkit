@@ -15,7 +15,7 @@ As of now the project isn't on PyPI, so you'll have to install it from source.
 ```
 python -m venv .venv
 source .venv/bin/activate
-pip install '.[test]'
+pip install -e '.[test]'
 ```
 
 ## For Pyenv users
