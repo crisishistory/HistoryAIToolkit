@@ -22,8 +22,28 @@ pip install '.[test]'
 
 TODO
 
+## Downloading the data
+
+Get the data from [Kaggle](https://www.kaggle.com/c/ieee-fraud-detection/data) and put it in the `data` directory:
+
+```
+mkdir data
+cd data
+kaggle datasets download -d oral-history-audio-interviews
+```
+
+
 ## Using the CLI
 
 Once you've installed the project, you can run the command-line interface with:
 
-TODO
+```
+(.venv) audrey@supercomputer HistoryAIToolkit % historyaitoolkit hello
+Hello, world!
+(.venv) audrey@supercomputer HistoryAIToolkit % historyaitoolkit todo 
+TODO: Add another command here
+```
+
+Note: the CLI hasn't been connected to the rest of the project yet
+
+TODO: implement commands to run the code from slicer.py and transcript.py
