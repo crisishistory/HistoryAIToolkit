@@ -20,7 +20,7 @@ The goal of the project is to help to avoid thi kind of situation, by:
 
 ## Status
 
-The code in here is a proof-of-concept to give you an idea of what we're building. It doesn't work yet. It will probably all be changed completely.
+The code in here is a proof-of-concept to give you an idea of what we're building. It partially works. The code, documentation, and tests are still a bit unstable and need a lot of love. We need all the help we can get.
 
 ## Prototype
 
