@@ -1,4 +1,5 @@
 from pathlib import Path
+from rich.console import Console
 import sys
 
 try:
@@ -11,6 +12,10 @@ from whisper.utils import get_writer
 from pydantic import BaseModel
 
 
+console = Console()
+
+
+
 class Transcript(BaseModel):
     """The Transcript entity represents the transcript of an interview."""
 
@@ -19,11 +24,11 @@ class Transcript(BaseModel):
 
 def transcribe_from_paths(source: Path, target: Path) -> None:
 
-    print("Loading whisper base model...")
+    console.print("Loading whisper base model...")
     model = whisper.load_model("base")
 
-    print("Transcribing audio file...")
-    result = model.transcribe((str(source)), fp16=False)
+    with console.status("Transcribing audio file..."):
+        result = model.transcribe((str(source)), fp16=False)
 
     # Setting some initial options values for the .txt output file
     txt_file_options = {
@@ -36,12 +41,12 @@ def transcribe_from_paths(source: Path, target: Path) -> None:
     }
 
     # Save as a .txt file with hard breaks, added for readability to user
-    print("Saving transcript as a .txt file...")
+    console.print("Saving transcript as a .txt file...")
     txt_writer = get_writer("txt", str(target))
     txt_writer(result, source.name, txt_file_options)
 
-    print("Transcript saved to:")
-    print(f"    {target / source.name}.txt")
+    console.print("Transcript saved to:")
+    console.print(f"    [green bold]{target / source.name}.txt[/green bold]")
 
 
 if __name__ == "__main__":
