@@ -20,7 +20,16 @@ pip install -e '.[test]'
 
 ## For Pyenv users
 
-TODO
+1. Create a Python virtual environment with Pyenv
+2. Activate the virtual environment
+3. Clone the project repository and navigate to the project directory
+4. Install the project from source in editable mode with test dependencies
+
+```bash
+pyenv virtualenv <python_version> <env_name>
+pyenv activate <env_name>
+pip install -e '.[test]'
+```
 
 ## Downloading the data
 
