@@ -4,12 +4,25 @@ from rich import print
 import typer
 from typing import Optional
 from typing_extensions import Annotated
+import sys
 
-from .slicer import audio_slicing
-from .transcript import transcribe_from_paths
+from slicer import audio_slicing
+from transcript import transcribe_from_paths
+
+
+__version__ = '0.0.1'
 
 app = typer.Typer()
 
+def version_callback(value: bool):
+    if value:
+        typer.echo(f"HistoryAIToolKit: {__version__}")
+        raise typer.Exit()
+
+@app.command("version")    
+def main():
+    """Checks the package version"""
+    version_callback(sys.argv[1:])
 
 @app.command()
 def slice(
