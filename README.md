@@ -5,9 +5,7 @@ AI toolkit for professional and amateur historians, and for anyone who wishes to
 Join our Discord server: https://discord.gg/WvqytcHfnD
 
 ## Project goals and scope
-
-Some time ago Audrey come in contact with a group of historians working on interviews of survivors of relevant historical events, with the goal of avoiding the loss of this highly valuable first-hand knowledge down the timeline.  
-
+Some time ago Audrey came in contact with a group of historians working on interviews of people with first-hand knowledge of relevant historical events. These historians are part of a larger international research community collecting historically-important stories. The hope is to prevent highly valuable first-hand stories from world leaders, community organizers, witnesses of technological developments, survivors of events, notable people, elders, immigrants, participants of historical events, etc. from being lost down the timeline.  
 Interviews are conducted by:
 
 * Experienced historians
