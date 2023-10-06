@@ -26,7 +26,7 @@ dependencies = [
     "pydub==0.25.1",
     "rich==13.6.0",
     "pathlib==1.0.1",
-    "enum==0.4.7",
+  
 ]
 
 [project.optional-dependencies]
@@ -39,6 +39,11 @@ dev = [
     "pytest",  # testing
     "ruff",  # linting
     "sphinx"  # documentation
+]
+
+test = [
+    "pytest",
+    # other test dependencies
 ]
 
 [project.urls]
