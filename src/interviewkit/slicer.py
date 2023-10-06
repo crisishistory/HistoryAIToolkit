@@ -32,6 +32,16 @@ from pathlib import Path
 import shutil
 from datetime import timedelta
 
+from dataclasses import dataclass
+
+@dataclass
+class AudioSubset:
+    audio: pydub.AudioSegment
+    start_time: timedelta
+    end_time: timedelta
+
+import logging
+
 try:
     import pydub
 except ImportError:
@@ -87,45 +97,53 @@ def slice_audio(audio, start_time: timedelta , end_time: timedelta):
 
 def audio_slicing(path, audio_slice_start_time, audio_slice_end_time):
     """ It reads the original audio and uses start and end input time params to generate sliced audio. """
-    
-    print("Sampling {} from {} to {}".format(path, audio_slice_start_time, audio_slice_end_time))
+
+    logging.log(f"Sampling {path} from {audio_slice_start_time} to {audio_slice_end_time}".format(path, audio_slice_start_time, audio_slice_end_time))
+
 
     # Reading original audio file
-    audio = pydub.AudioSegment.from_file(path)
-    original_audio_size_ms = audio.duration_seconds * 1000
 
+
+
+    try:
+        sliced_audio = slice_audio(audio, audio_start_time, audio_end_time)
+    except IndexError:
+        raise ValueError("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
+
+
+
+
+def parse_input(argv):
+    if len(argv) != 4:
+        raise ValueError("Usage: python3 slicer.py <filepath> <audio start time in minutes> <audio end time in minutes>")
+    
+    
+    audio = pydub.AudioSegment.from_file(Path(argv[1]))
 
     # Converting audio start and end times in msecs
-    audio_start_time = convert_time_input_to_time_delta(audio_slice_start_time)
-    audio_end_time = convert_time_input_to_time_delta(audio_slice_end_time)
-    
-    # Check if audio start and end times are within original audio size limits
-    if(audio_start_time > original_audio_size_ms or audio_end_time > original_audio_size_ms):
-        print("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
-        exit(1)
+    audio_start_time = convert_time_input_to_time_delta(argv[2])
+    audio_end_time = convert_time_input_to_time_delta(argv[3])
 
-    sliced_audio = slice_audio(audio, audio_start_time, audio_end_time)
+    return AudioSubset(audio, audio_start_time, audio_end_time)
 
-    
-    new_filename = 
-
+def export_as_file(audio: AudioSubset, file_prefix):
     # Filename for exported file
-    audio_start_time_name = export_filename(audio_start_time_list)
-    audio_end_time_name = export_filename(audio_end_time_list)
-    new_filename =  f"{path.parent}/sampled-{audio_start_time_name}-{audio_end_time_name}-{path.name}"
-    audio.export(new_filename, format="mp3")
-    print("Created new file: ", new_filename)
+    start_time_output = f'{audio.start_time.min}m{audio.start_time.seconds}s'
+    end_time_output = f'{audio.end_time.min}m{audio.end_time.seconds}s'
+    new_filename =  f"{.parent}/sampled-{start_time_output}-{end_time_output}-{path.name}"
+    sliced_audio.export(new_filename, format="mp3")
+    logging.log(f'Created new file: {new_filename}')
+
+
 
 def main():
-    if len(sys.argv) != 4:
-        print("Usage: python3 slicer.py <filepath> <audio start time in minutes> <audio end time in minutes>")
-        return
 
-    path = Path(sys.argv[1])
-    audio_slice_start_time = (sys.argv[2])
-    audio_slice_end_time = (sys.argv[3])
+    
+    argv = parse_input(sys.argv)
 
-    audio_slicing(path, audio_slice_start_time, audio_slice_end_time)
+    new_audio = slice_audio(argv.audio, argv.start_time, argv.end_time)
 
+    export_as_file(new_audio, "./")
+    
 if __name__ == '__main__':
     main()
