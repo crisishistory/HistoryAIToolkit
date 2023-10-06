@@ -1,10 +1,8 @@
-from pathlib import Path
-
-from rich import print
-import typer
-from typing import Optional
-from typing_extensions import Annotated
 import sys
+import typer
+
+from pathlib import Path
+from typing_extensions import Annotated
 
 from slicer import audio_slicing
 from transcript import transcribe_from_paths
