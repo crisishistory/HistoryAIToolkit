@@ -25,5 +25,5 @@ Contents:
    :maxdepth: 2
    :glob:
 
-   README_link
-   getting_started
+   README_link.md
+   getting_started.md

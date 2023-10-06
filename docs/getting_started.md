@@ -12,7 +12,7 @@ As of now the project isn't on PyPI, so you'll have to install it from source.
 2. Clone it to your computer
 3. In your terminal, run:
 
-```
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -e '.[test]'
@@ -46,12 +46,16 @@ kaggle datasets download -d oral-history-audio-interviews
 Once you've installed the project, you can run the command-line interface with:
 
 ```
-(.venv) audrey@supercomputer HistoryAIToolkit % historyaitoolkit hello
-Hello, world!
-(.venv) audrey@supercomputer HistoryAIToolkit % historyaitoolkit todo 
-TODO: Add another command here
+(.venv) ❯ hist --help
+
+ Usage: hist [OPTIONS] COMMAND [ARGS]...
+╭─ Options ─────────────────────────────────────────────────────────────
+│ --install-completion        [bash|zsh|fish|powershell|pwsh]
+│ --show-completion           [bash|zsh|fish|powershell|pwsh]
+│ --help                      Show this message and exit.
+╰───────────────────────────────────────────────────────────────────────
+╭─ Commands ────────────────────────────────────────────────────────────
+│ slice                   Slices an audio file into smaller audio files.
+│ transcribe              "Transcribes an audio file into text.
+╰────────────────────────────────────────────────────────────────────────
 ```
-
-Note: the CLI hasn't been connected to the rest of the project yet
-
-TODO: implement commands to run the code from slicer.py and transcript.py
