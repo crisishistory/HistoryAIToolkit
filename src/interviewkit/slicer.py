@@ -73,19 +73,6 @@ def convert_time_input_to_time_delta(time_input: str):
         seconds = int(audio_time_split_list[1])
     
     return timedelta(minutes=minutes, seconds=seconds)
-   
-
-def export_filename(audio_time_list):
-    """ Filename for exported file """
-    
-    if audio_time_list and len(audio_time_list) == 2:
-        return f"{audio_time_list[0]}m{audio_time_list[1]}s"
-    elif audio_time_list and len(audio_time_list) == 1:
-        return f"{audio_time_list[0]}m"
-    else:
-        print("Error! Audio slice input params invalid. Please try again with correct parameters.")
-        print("Error inside export_filename(audio_time_list) funtion.")
-        exit(1)
 
 
 def slice_audio(audio, start_time: timedelta , end_time: timedelta):
@@ -93,24 +80,6 @@ def slice_audio(audio, start_time: timedelta , end_time: timedelta):
     end_time_ms = end_time.total_seconds() * 1000
     
     return audio[start_time_ms, end_time_ms]
-
-
-def audio_slicing(path, audio_slice_start_time, audio_slice_end_time):
-    """ It reads the original audio and uses start and end input time params to generate sliced audio. """
-
-    logging.log(f"Sampling {path} from {audio_slice_start_time} to {audio_slice_end_time}".format(path, audio_slice_start_time, audio_slice_end_time))
-
-
-    # Reading original audio file
-
-
-
-    try:
-        sliced_audio = slice_audio(audio, audio_start_time, audio_end_time)
-    except IndexError:
-        raise ValueError("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
-
-
 
 
 def parse_input(argv):
@@ -131,7 +100,7 @@ def export_as_file(audio: AudioSubset, file_prefix):
     start_time_output = f'{audio.start_time.min}m{audio.start_time.seconds}s'
     end_time_output = f'{audio.end_time.min}m{audio.end_time.seconds}s'
     new_filename =  f"{.parent}/sampled-{start_time_output}-{end_time_output}-{path.name}"
-    sliced_audio.export(new_filename, format="mp3")
+    audio.export(new_filename, format="mp3")
     logging.log(f'Created new file: {new_filename}')
 
 
@@ -141,9 +110,12 @@ def main():
     
     argv = parse_input(sys.argv)
 
-    new_audio = slice_audio(argv.audio, argv.start_time, argv.end_time)
+    try:
+        new_audio = slice_audio(argv.audio, argv.start_time, argv.end_time)
+    except IndexError:
+        raise ValueError("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
 
     export_as_file(new_audio, "./")
-    
+
 if __name__ == '__main__':
     main()
