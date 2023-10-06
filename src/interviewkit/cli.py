@@ -27,6 +27,7 @@ def slice(
     start: Annotated[str, typer.Argument(help="start time in mins:secs")],
     duration: Annotated[str, typer.Argument(help="duration in mins:secs")],
 ):
+    """Slices an audio file into smaller audio files."""
     audio_slicing(source, start, duration)
 
 
@@ -45,6 +46,7 @@ def transcribe(
     ],
     target: Path,
 ):
+    """Transcribes an audio file into text."""
     if source.suffix not in [".mp3", ".wav"]:
         raise ValueError("File must be an .mp3 or .wav file")
     transcribe_from_paths(source, target)
