@@ -5,18 +5,32 @@ AI toolkit for professional and amateur historians, and for anyone who wishes to
 Join our Discord server: https://discord.gg/WvqytcHfnD
 
 ## Project goals and scope
-Some time ago Audrey came in contact with a group of historians working on interviews of survivors of relevant historical events.   
-With the goal of preventing this highly valuable first-hand knowledge from being lost down the timeline.  
-Interviews are conducted by experienced historians and also by less experienced historians and students.
+Some time ago Audrey came in contact with a group of historians working on interviews of people with first-hand knowledge of relevant historical events. These historians are part of a larger international research community collecting historically-important stories. The hope is to prevent highly valuable first-hand stories from world leaders, community organizers, witnesses of technological developments, survivors of events, notable people, elders, immigrants, participants of historical events, etc. from being lost down the timeline.  
+Interviews are conducted by:
 
-Experienced interviewers are comfortable asking follow-up questions while maintaining the interview comfortable and cooperative.  
-However, less experienced interviewers may feel intimidated by an interview with a strong presence, be unable to produce good follow-up questions or risk asking questions that may make the interview uncomfortable.   
-Which may lead to the loss of the opportunity to collect good historical materials.
+* Experienced historians
+* Less experienced historians, students, and volunteer community researchers under the mentorship of experienced historians
 
-The goal of the project is to help to avoid this kind of situation, by:
-- Converting the audio of the interviews to text.
-- Feed this text to an LLM
-- Use that LLM to help generate "comfortable" and appropriate follow-up questions to help interviewers progress with confidence.
+Experienced historical interviewers are good at asking follow-up questions in a way that makes an interviewee not just feel comfortable, but enjoy telling their stories in vivid, relatable ways as a contribution to the historical record.
+
+However, less experienced interviewers may feel intimidated by narrators with a strong presence. Sometimes a junior historian interviewing a famous person blanks out while trying to come up with good follow-up questions. Or they risk asking questions that may make the interviewee uncomfortable, which may led to loss of the opportunity to collect good historical materials.
+
+The goal of the project is to help historians and narrators in various ways:
+
+* Help community history researchers of all levels be better, friendlier interviewers
+* Help those with interesting historial experiences tell their stories and enjoy the process
+* Help survivors telling difficult stories feel at ease, with kindness, empathy, and respect
+
+From a technical perspective, this involves:
+
+* Providing tools to process past audio and video interviews
+  * Slicing/editing of snippets of interest
+  * Conversion to high-quality text transcripts
+* Providing tools to generate interview questions from past or realtime interviews 
+  * Feeding transcript text to an LLM
+  * Using an LLM to help to generate interesting, fun, friendly, and appropriate follow-up questions to help interviewers ask great questions
+
+Interviews can be about surviving adversity, but they can also be about witnessing special historical moments. For example, an oral history interview could be about working with famous computer scientists and witnessing the history of computing.
 
 ## Status
 
