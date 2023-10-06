@@ -34,12 +34,6 @@ from datetime import timedelta
 
 from dataclasses import dataclass
 
-@dataclass
-class AudioSubset:
-    audio: pydub.AudioSegment
-    start_time: timedelta
-    end_time: timedelta
-
 import logging
 
 try:
@@ -52,6 +46,28 @@ if shutil.which("ffmpeg") is None:
     print("Please install ffmpeg: https://ffmpeg.org/download.html")
     print("  On mac you can: brew install ffmpeg")
     exit(1)
+
+@dataclass
+class AudioSubset:
+    name: str
+    audio: pydub.AudioSegment
+    start_time: timedelta
+    end_time: timedelta
+
+    def as_audio(self):
+        start_time_ms = self.start_time.total_seconds() * 1000
+        end_time_ms = self.end_time.total_seconds() * 1000
+    
+        return self.audio[start_time_ms, end_time_ms]
+
+    def export(self, filepath, format):
+        start_time_output = f'{self.start_time.min}m{self.start_time.seconds}s'
+        end_time_output = f'{self.end_time.min}m{self.end_time.seconds}s'
+        output_filepath = Path(filepath)
+        new_filename =  output_filepath + f"/sampled-{start_time_output}-{end_time_output}-{self.name}"
+        self.audio.export(new_filename, format)
+        logging.log(f'Created new file: {new_filename}')
+
 
 def convert_time_input_to_time_delta(time_input: str):
     """ Converting mins and secs to msecs for pydub computation """
@@ -69,7 +85,7 @@ def convert_time_input_to_time_delta(time_input: str):
     
     seconds = 0
 
-    if len(audio_slicing == 2):
+    if len(time_input == 2):
         seconds = int(audio_time_split_list[1])
     
     return timedelta(minutes=minutes, seconds=seconds)
@@ -86,36 +102,26 @@ def parse_input(argv):
     if len(argv) != 4:
         raise ValueError("Usage: python3 slicer.py <filepath> <audio start time in minutes> <audio end time in minutes>")
     
-    
-    audio = pydub.AudioSegment.from_file(Path(argv[1]))
+    path = Path(argv[1])
+     
+    audio = pydub.AudioSegment.from_file(path)
 
     # Converting audio start and end times in msecs
     audio_start_time = convert_time_input_to_time_delta(argv[2])
     audio_end_time = convert_time_input_to_time_delta(argv[3])
 
-    return AudioSubset(audio, audio_start_time, audio_end_time)
-
-def export_as_file(audio: AudioSubset, file_prefix):
-    # Filename for exported file
-    start_time_output = f'{audio.start_time.min}m{audio.start_time.seconds}s'
-    end_time_output = f'{audio.end_time.min}m{audio.end_time.seconds}s'
-    new_filename =  f"{.parent}/sampled-{start_time_output}-{end_time_output}-{path.name}"
-    audio.export(new_filename, format="mp3")
-    logging.log(f'Created new file: {new_filename}')
-
+    return AudioSubset(path.name, audio, audio_start_time, audio_end_time)
 
 
 def main():
 
     
-    argv = parse_input(sys.argv)
+    audio_subset = parse_input(sys.argv)
 
     try:
-        new_audio = slice_audio(argv.audio, argv.start_time, argv.end_time)
+       audio_subset.export("¬/", "mp3")
     except IndexError:
         raise ValueError("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
-
-    export_as_file(new_audio, "./")
 
 if __name__ == '__main__':
     main()
