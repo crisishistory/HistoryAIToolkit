@@ -30,6 +30,7 @@ python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 80:30 90:40
 import sys
 from pathlib import Path
 import shutil
+from datetime import timedelta
 
 try:
     import pydub
@@ -42,22 +43,27 @@ if shutil.which("ffmpeg") is None:
     print("  On mac you can: brew install ffmpeg")
     exit(1)
 
-def convert_audio_time_to_msec(audio_time_split_list):
+def convert_time_input_to_time_delta(time_input: str):
     """ Converting mins and secs to msecs for pydub computation """
 
-    if(audio_time_split_list):
-        if(len(audio_time_split_list) == 1):
-            return int(audio_time_split_list[0]) * 60 * 1000
-        elif(len(audio_time_split_list) == 2):
-            return int(audio_time_split_list[0]) * 60 * 1000 + int(audio_time_split_list[1]) * 1000
-        else:
-            print("Error! Audio slice input params invalid. Audio slice supports start/end time in mins or mins:secs format. Please try again with correct input times.")
-            print("Error inside convert_audio_time_to_msec(audio_time_split_list) funtion.")
-            exit(1)
-    else:
-        print("Error! Audio slice input params invalid. Please try again with correct parameters.")
-        print("Error inside convert_audio_time_to_msec(audio_time_split_list) funtion.")
-        exit(1)
+    # Fetching mins and secs from audio input
+    audio_time_split_list = time_input.split(":")
+
+    if not audio_time_split_list:
+        raise ValueError("input time not found")
+    
+    if len(audio_time_split_list) > 2:
+        raise ValueError("Audio slice input params invalid. Audio slice supports start/end time in mins or mins:secs format. Please try again with correct input times") 
+
+    minutes = int(audio_time_split_list[0])
+    
+    seconds = 0
+
+    if len(audio_slicing == 2):
+        seconds = int(audio_time_split_list[1])
+    
+    return timedelta(minutes=minutes, seconds=seconds)
+   
 
 def export_filename(audio_time_list):
     """ Filename for exported file """
@@ -72,6 +78,13 @@ def export_filename(audio_time_list):
         exit(1)
 
 
+def slice_audio(audio, start_time: timedelta , end_time: timedelta):
+    start_time_ms = start_time.total_seconds() * 1000
+    end_time_ms = end_time.total_seconds() * 1000
+    
+    return audio[start_time_ms, end_time_ms]
+
+
 def audio_slicing(path, audio_slice_start_time, audio_slice_end_time):
     """ It reads the original audio and uses start and end input time params to generate sliced audio. """
     
@@ -81,21 +94,20 @@ def audio_slicing(path, audio_slice_start_time, audio_slice_end_time):
     audio = pydub.AudioSegment.from_file(path)
     original_audio_size_ms = audio.duration_seconds * 1000
 
-    # Fetching mins and secs from audio input
-    audio_start_time_list = audio_slice_start_time.split(":")
-    audio_end_time_list = audio_slice_end_time.split(":")
 
     # Converting audio start and end times in msecs
-    audio_start_time = convert_audio_time_to_msec(audio_start_time_list)
-    audio_end_time = convert_audio_time_to_msec(audio_end_time_list)
+    audio_start_time = convert_time_input_to_time_delta(audio_slice_start_time)
+    audio_end_time = convert_time_input_to_time_delta(audio_slice_end_time)
     
     # Check if audio start and end times are within original audio size limits
     if(audio_start_time > original_audio_size_ms or audio_end_time > original_audio_size_ms):
         print("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
         exit(1)
 
-    # Audio slicing process
-    audio = audio[audio_start_time:audio_end_time]
+    sliced_audio = slice_audio(audio, audio_start_time, audio_end_time)
+
+    
+    new_filename = 
 
     # Filename for exported file
     audio_start_time_name = export_filename(audio_start_time_list)
