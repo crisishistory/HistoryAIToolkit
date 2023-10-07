@@ -74,23 +74,23 @@ def parse_input(argv: list[str]):
     return SlicerInput(path, audio_start_time, audio_end_time)
 
 def create_output_path(input: SlicerInput):
-    start_time_output = f'{input.start_time.min}m{input.start_time.seconds}s'
-    end_time_output = f'{input.end_time.min}m{input.end_time.seconds}s'
-    new_filepath =  input.path.name + f"/sampled-{start_time_output}-{end_time_output}-{self.name}"
+    start_minutes, start_seconds = divmod(input.start_time.seconds, 60)
+    end_minutes, end_seconds = divmod(input.end_time.seconds, 60)
+    start_time_output = f'{start_minutes}m{start_seconds}s'
+    end_time_output = f'{end_minutes}m{end_seconds}s'
+    new_filepath =   input.path.parent / f"sampled-{start_time_output}-{end_time_output}-{input.path.name}"
     return new_filepath
 
 def slice_audio(audio: pydub.AudioSegment, start_time: timedelta , end_time: timedelta):
     start_time_ms = int(start_time.total_seconds() * 1000)
     end_time_ms = int(end_time.total_seconds() * 1000)
     
-    return audio[start_time_ms, end_time_ms]
+    return audio[start_time_ms:end_time_ms]
 
 
 def main():
 
     argv = parse_input(sys.argv)
-
-    print(argv.path)
 
     audio = pydub.AudioSegment.from_file(argv.path)
 
@@ -102,7 +102,7 @@ def main():
     output_file_path = create_output_path(argv)
     sliced_audio.export(output_file_path, "mp3")
 
-    logging.log(f'Created new file: {output_file_path}')
+    print(f'Created new file: {output_file_path}')
 
 
 if __name__ == '__main__':
