@@ -18,12 +18,6 @@ This generates:
     data/sampled-70m40s-80m40s-MartineBarrat_FINAL.mp3
     data/sampled-2m-4m-MartineBarrat_FINAL.mp3
 
-Note: 
-The Script currently doesn't support input in hours format, so hours will need to converted to mins:secs format.
-Example: If we want audio from 1hr 20mins 30 secs to 1hr 30mins 40secs, it can be done as shown below:
-1hr 20mins 30 secs = 80mins 30secs
-1hr 30mins 40sec = 90mins 40secs
-
 python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 80:30 90:40
 
 """
@@ -32,7 +26,6 @@ from pathlib import Path
 import shutil
 from datetime import timedelta, datetime
 from dataclasses import dataclass
-import logging
 import pydub
 
 
