@@ -82,6 +82,11 @@ def create_output_path(input: SlicerInput):
     return new_filepath
 
 def slice_audio(audio: pydub.AudioSegment, start_time: timedelta , end_time: timedelta):
+
+
+    if(start_time.seconds > audio.duration_seconds or end_time.seconds > audio.duration_seconds):
+        raise ValueError("slice not within audio length")
+
     start_time_ms = int(start_time.total_seconds() * 1000)
     end_time_ms = int(end_time.total_seconds() * 1000)
     
@@ -96,7 +101,7 @@ def main():
 
     try:
        sliced_audio =  slice_audio(audio, argv.start_time, argv.end_time)
-    except IndexError:
+    except ValueError:
         raise ValueError("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
     
     output_file_path = create_output_path(argv)
