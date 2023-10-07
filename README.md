@@ -6,21 +6,22 @@ Join our Discord server: [discord.gg/WvqytcHfnD](https://discord.gg/WvqytcHfnD)
 
 ## Project goals and scope
 
-Some time ago Audrey came in contact with a group of historians working on interviews of people with first-hand knowledge of relevant historical events. These historians are part of a larger international research community collecting historically-important stories. The hope is to prevent highly valuable first-hand stories from world leaders, community organizers, witnesses of technological developments, survivors of events, notable people, elders, immigrants, participants of historical events, etc. from being lost down the timeline.  
+Some time ago Audrey came in contact with a group of historians working on interviews of people with first-hand knowledge of significant historical events. These historians are part of a larger international research community collecting historically-important stories. The hope is to prevent highly valuable first-hand narratives from being lost down the timeline. 
+
+Narratives can be from world leaders, community organizers, witnesses of technological developments, notable people, elders, immigrants, participants of historical events, natural disaster survivors, etc. 
+
 Interviews are conducted by:
 
 * Experienced historians
 * Less experienced historians, students, and volunteer community researchers under the mentorship of experienced historians
 
-Experienced historical interviewers are good at asking follow-up questions in a way that makes an interviewee not just feel comfortable, but enjoy telling their stories in vivid, relatable ways as a contribution to the historical record.
+Experienced historical interviewers are good at asking follow-up questions in a way that makes an interviewee feel comfortable and enjoy telling their stories in vivid, relatable ways as a contribution to the historical record. Less experienced interviewers may feel intimidated by interviewees with a strong presence or not know the full historical context to use in subsequent interview questions. 
 
-However, less experienced interviewers may feel intimidated by narrators with a strong presence. Sometimes a junior historian interviewing a famous person blanks out while trying to come up with good follow-up questions. Or they risk asking questions that may make the interviewee uncomfortable, which may led to loss of the opportunity to collect good historical materials.
+Regardless of experience, all interviewers run the risk of omitting questions that then become a lost opportunity to collect complete histories. The goal of the project is to help all types of historians and interviewees in various ways:
 
-The goal of the project is to help historians and narrators in various ways:
-
-* Help community history researchers of all levels be better, friendlier interviewers
-* Help those with interesting historial experiences tell their stories and enjoy the process
-* Help survivors telling difficult stories feel at ease, with kindness, empathy, and respect
+* Assist community history researchers, of all levels, making them more informed and ready to engage with the interviewees and their oral history testimonies
+* Aid those with interesting historical experiences confidently tell their stories and enjoy the process
+* Put survivors telling difficult stories at ease by skillfully listening with empathy and respect 
 
 From a technical perspective, this involves:
 
@@ -29,9 +30,7 @@ From a technical perspective, this involves:
   * Conversion to high-quality text transcripts
 * Providing tools to generate interview questions from past or realtime interviews 
   * Feeding transcript text to an LLM
-  * Using an LLM to help to generate interesting, fun, friendly, and appropriate follow-up questions to help interviewers ask great questions
-
-Interviews can be about surviving adversity, but they can also be about witnessing special historical moments. For example, an oral history interview could be about working with famous computer scientists and witnessing the history of computing.
+  * Using an LLM to help to generate meaningful, insightful, and appropriate follow-up questions to help interviewers create the most historically complete record.
 
 ## Status
 
