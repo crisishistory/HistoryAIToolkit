@@ -30,98 +30,80 @@ python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 80:30 90:40
 import sys
 from pathlib import Path
 import shutil
-from datetime import timedelta
-
+from datetime import timedelta, datetime
 from dataclasses import dataclass
-
 import logging
+import pydub
 
-try:
-    import pydub
-except ImportError:
-    print("Please install pydub: pip install pydub")
-    exit(1)
 
 if shutil.which("ffmpeg") is None:
     print("Please install ffmpeg: https://ffmpeg.org/download.html")
     print("  On mac you can: brew install ffmpeg")
     exit(1)
 
+
+EXPECTED_TIME_FORMAT = "%H:%M:%S"
+
 @dataclass
-class AudioSubset:
-    name: str
-    audio: pydub.AudioSegment
+class SlicerInput:
+    path: Path
     start_time: timedelta
     end_time: timedelta
 
-    def as_audio(self):
-        start_time_ms = self.start_time.total_seconds() * 1000
-        end_time_ms = self.end_time.total_seconds() * 1000
-    
-        return self.audio[start_time_ms, end_time_ms]
-
-    def export(self, filepath, format):
-        start_time_output = f'{self.start_time.min}m{self.start_time.seconds}s'
-        end_time_output = f'{self.end_time.min}m{self.end_time.seconds}s'
-        output_filepath = Path(filepath)
-        new_filename =  output_filepath + f"/sampled-{start_time_output}-{end_time_output}-{self.name}"
-        self.audio.export(new_filename, format)
-        logging.log(f'Created new file: {new_filename}')
-
-
 def convert_time_input_to_time_delta(time_input: str):
-    """ Converting mins and secs to msecs for pydub computation """
 
-    # Fetching mins and secs from audio input
-    audio_time_split_list = time_input.split(":")
+    time_info_values = zip(reversed(time_input.split(":")), reversed(EXPECTED_TIME_FORMAT.split(":")))
 
-    if not audio_time_split_list:
-        raise ValueError("input time not found")
-    
-    if len(audio_time_split_list) > 2:
-        raise ValueError("Audio slice input params invalid. Audio slice supports start/end time in mins or mins:secs format. Please try again with correct input times") 
+    full_time_value, time_info = zip(*time_info_values)
 
-    minutes = int(audio_time_split_list[0])
-    
-    seconds = 0
+    time =  datetime.strptime(":".join(full_time_value), ":".join(time_info))
 
-    if len(time_input == 2):
-        seconds = int(audio_time_split_list[1])
-    
-    return timedelta(minutes=minutes, seconds=seconds)
+    return timedelta(hours=time.hour, minutes=time.minute, seconds=time.second)
 
 
-def slice_audio(audio, start_time: timedelta , end_time: timedelta):
-    start_time_ms = start_time.total_seconds() * 1000
-    end_time_ms = end_time.total_seconds() * 1000
-    
-    return audio[start_time_ms, end_time_ms]
-
-
-def parse_input(argv):
+def parse_input(argv: list[str]):
     if len(argv) != 4:
         raise ValueError("Usage: python3 slicer.py <filepath> <audio start time in minutes> <audio end time in minutes>")
     
     path = Path(argv[1])
      
-    audio = pydub.AudioSegment.from_file(path)
-
     # Converting audio start and end times in msecs
     audio_start_time = convert_time_input_to_time_delta(argv[2])
     audio_end_time = convert_time_input_to_time_delta(argv[3])
 
-    return AudioSubset(path.name, audio, audio_start_time, audio_end_time)
+    return SlicerInput(path, audio_start_time, audio_end_time)
+
+def create_output_path(input: SlicerInput):
+    start_time_output = f'{input.start_time.min}m{input.start_time.seconds}s'
+    end_time_output = f'{input.end_time.min}m{input.end_time.seconds}s'
+    new_filepath =  input.path.name + f"/sampled-{start_time_output}-{end_time_output}-{self.name}"
+    return new_filepath
+
+def slice_audio(audio: pydub.AudioSegment, start_time: timedelta , end_time: timedelta):
+    start_time_ms = int(start_time.total_seconds() * 1000)
+    end_time_ms = int(end_time.total_seconds() * 1000)
+    
+    return audio[start_time_ms, end_time_ms]
 
 
 def main():
 
-    
-    audio_subset = parse_input(sys.argv)
+    argv = parse_input(sys.argv)
+
+    print(argv.path)
+
+    audio = pydub.AudioSegment.from_file(argv.path)
 
     try:
-       audio_subset.export("¬/", "mp3")
+       sliced_audio =  slice_audio(audio, argv.start_time, argv.end_time)
     except IndexError:
         raise ValueError("Error! Audio slice input params cannot be greater than original audio size. Please try again with correct parameters.")
+    
+    output_file_path = create_output_path(argv)
+    sliced_audio.export(output_file_path, "mp3")
+
+    logging.log(f'Created new file: {output_file_path}')
+
 
 if __name__ == '__main__':
     main()
