@@ -7,3 +7,5 @@ pathlib==1.0.1
 enum==0.4.7
 pydantic-settings==2.0.3
 pydub==0.25.1
+ruff==0.0.292
+pre-commit==3.4.0
