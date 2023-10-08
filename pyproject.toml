@@ -39,7 +39,7 @@ dev = [
     "pytest",  # testing
     "ruff==0.0.292",  # linting
     "sphinx",  # documentation
-    "pre-commit==3.4.0", # managages/maintains pre-commit hooks
+    "pre-commit==3.4.0", # manages and maintains pre-commit hooks
 ]
 
 test = [
