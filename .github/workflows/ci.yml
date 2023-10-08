@@ -1,4 +1,5 @@
 name: Project Tests
+
 on:
   push:
     branches:
@@ -24,7 +25,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
 
-      - name: Test with pytest
+      - name: Find and run pytest tests
         run: |
-          python -m pytest ./tests/tests.py
-          python -m pytest ./tests/test_install_package.py
+          test_files=$(find ./tests/ -name "*test*.py")
+          
+          # Run pytest on all found test files
+          python -m pytest $test_files
