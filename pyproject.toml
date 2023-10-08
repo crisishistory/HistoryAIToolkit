@@ -37,8 +37,9 @@ dev = [
     "mypy",  # linting
     "myst-parser",  # markdown parsing
     "pytest",  # testing
-    "ruff",  # linting
-    "sphinx"  # documentation
+    "ruff==0.0.292",  # linting
+    "sphinx",  # documentation
+    "pre-commit==3.4.0", # manages and maintains pre-commit hooks
 ]
 
 test = [
