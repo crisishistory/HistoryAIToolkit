@@ -68,3 +68,11 @@ Once you've installed the project, you can run the command-line interface with:
 │ transcribe              "Transcribes an audio file into text.
 ╰────────────────────────────────────────────────────────────────────────
 ```
+
+To transcribe an mp3 file you would type:
+
+```
+hist transcribe data/2023-10-06_Mat.mp3 data/
+```
+
+Once it's done, the transcript will be saved in data/ with the same name but a `.txt` extension.
