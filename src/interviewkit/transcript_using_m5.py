@@ -1,7 +1,6 @@
 from pathlib import Path
 from rich.console import Console
 import sys
-import os
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 try:
