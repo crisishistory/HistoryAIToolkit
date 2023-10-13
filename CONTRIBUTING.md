@@ -83,6 +83,20 @@ Once it's filed:
 Look through the GitHub issues for bugs. Anything tagged with **bug**
 and **help wanted** is open to whoever wants to implement a fix for it.
 
+### Test Coverage 
+
+To run your tests with coverage analysis, you can use the following command:
+
+`$ coverage run -m pytest tests`
+
+This command executes your test suite while collecting code coverage information.
+
+To view the coverage report, you can execute the following command:
+
+`$ coverage report`
+
+This command will provide a summary of the test coverage, indicating which parts of the codebase are covered by the tests and which areas might require additional testing.
+
 ### Documentation
 
 The project is currently in its infancy, and we have a huge need for documentation:
