@@ -10,3 +10,5 @@ ruff==0.0.292
 pre-commit==3.4.0
 clarifai-grpc==9.9.0
 transformers==4.34.0
+coverage==7.3.2
+

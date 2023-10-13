@@ -32,7 +32,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "black",  # code auto-formatting
-    "coverage",  # testing
+    "coverage==7.3.2",  # testing
     "isort",  # code auto-formatting
     "mypy",  # linting
     "myst-parser",  # markdown parsing
