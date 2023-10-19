@@ -44,7 +44,7 @@ pip install -e '.[test]'
 At minimum you'll need a short audio file to test the code with, which can be:
 
 * Something you record yourself, or
-* A snippet of an audio oral history interview such as [this mp3](https://github.com/audreyfeldroy/HistoryAIToolkit/blob/2ea4f8fc974783f996dd367c4110b50d1185a972/data/sampled-2-Martine%2BBarrat_FINAL.mp3), or
+* A snippet of an audio oral history interview such as an mp3 file from https://github.com/historysciencelab/example-oral-history-interviews or
 * An audio file from the [Oral History Audio Interviews](https://www.kaggle.com/datasets/audreyfeldroy/oral-history-audio-interviews) dataset on Kaggle, if you want a longer file
 
 ### Very Optional: For Advanced Users
