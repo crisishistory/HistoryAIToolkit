@@ -31,6 +31,14 @@ pyenv activate <env_name>
 pip install -e '.[test]'
 ```
 
+For example:
+
+```bash
+pyenv virtualenv 3.11.4 histkit-env
+pyenv activate histkit-env
+pip install -e '.[test]'
+```
+
 ## Downloading the data
 
 At minimum you'll need a short audio file to test the code with, which can be:
