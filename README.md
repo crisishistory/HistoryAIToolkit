@@ -64,3 +64,8 @@ First install the project using the installation instructions in docs/source/get
 ```
 hist --help
 ```
+
+## Contributors Names
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
