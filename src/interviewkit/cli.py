@@ -1,11 +1,10 @@
 import sys
-import typer
-
 from pathlib import Path
-from typing_extensions import Annotated
 
+import typer
 from slicer import audio_slicing
 from transcript import transcribe_from_paths
+from typing_extensions import Annotated
 
 
 __version__ = '0.0.1'

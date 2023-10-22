@@ -33,11 +33,10 @@ dependencies = [
 dev = [
     "black",  # code auto-formatting
     "coverage==7.3.2",  # testing
-    "isort",  # code auto-formatting
     "mypy",  # linting
     "myst-parser",  # markdown parsing
     "pytest",  # testing
-    "ruff==0.0.292",  # linting
+    "ruff",  # linting
     "sphinx",  # documentation
     "pre-commit==3.4.0", # manages and maintains pre-commit hooks
 ]
@@ -61,30 +60,36 @@ package-dir = {"" = "src"}
 [project.scripts]
 hist = "interviewkit.cli:app"
 
-
-# Isort
-# -----
-
-[tool.isort]
-line_length = 99
-profile = "black"
-default_section = "THIRDPARTY"
-lines_after_imports = 2
-
-
-# Mypy
+# Ruff
 # ----
 
-[tool.mypy]
-files = "."
+[tool.ruff]
+select = [
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "I",  # isort
+]
+ignore = [
+    "E501",  # line too long - black takes care of this for us
+]
 
-# Use strict defaults
-strict = true
-warn_unreachable = true
-warn_no_return = true
+[tool.ruff.per-file-ignores]
+# Allow unused imports in __init__ files as these are convenience imports
+"**/__init__.py" = [ "F401" ]
 
-[[tool.mypy.overrides]]
-# Don't require test functions to include types
-module = "tests.*"
-allow_untyped_defs = true
-disable_error_code = "attr-defined"
+[tool.ruff.isort]
+lines-after-imports = 2
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "project",
+    "local-folder",
+]
+
+[tool.ruff.isort.sections]
+"project" = [
+    "src",
+    "tests",
+]
