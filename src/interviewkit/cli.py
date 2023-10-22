@@ -40,6 +40,25 @@ def slice(
     """Slices an audio file into smaller audio files."""
     audio_slicing(source, start, duration)
 
+@app.command()
+def generate_questions(source: Annotated[
+        Path,
+        typer.Argument(
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            readable=True,
+            resolve_path=True,
+            help="Source transcript file",
+        ),
+    ],
+    target: Path
+    ):
+    """Generates questions from a transcript."""
+    
+    questions = generate_questions_from_transcript(source.read_text())
+    target.write_text(questions)
+
 
 @app.command()
 def transcribe(
