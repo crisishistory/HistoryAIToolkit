@@ -74,11 +74,7 @@ ignore = [
 ]
 
 [tool.ruff.per-file-ignores]
-<<<<<<< HEAD
 # Allow unused imports in __init__ files, as these are convenience imports
-=======
-# Allow unused imports in __init__ files as these are convenience imports
->>>>>>> 79e13c2 (Add ruff and fix items for files not modified in other PRs)
 "**/__init__.py" = [ "F401" ]
 
 [tool.ruff.isort]
