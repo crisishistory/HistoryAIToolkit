@@ -1,6 +1,6 @@
-from random import choice
-from interviewee import Interviewee
 from enum import StrEnum, auto
+
+from interviewee import Interviewee
 from transcript import Transcript
 
 

@@ -27,9 +27,10 @@ Example: If we want audio from 1hr 20mins 30 secs to 1hr 30mins 40secs, it can b
 python interviewkit/slicer.py data/Martine+Barrat_FINAL.mp3 80:30 90:40
 
 """
+import shutil
 import sys
 from pathlib import Path
-import shutil
+
 
 try:
     import pydub

@@ -1,7 +1,9 @@
-from pathlib import Path
-from rich.console import Console
 import sys
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+from pathlib import Path
+
+from rich.console import Console
+from transformers import T5ForConditionalGeneration, T5Tokenizer
+
 
 try:
     import whisper
@@ -9,8 +11,9 @@ except ImportError:
     print("Please install Whisper: pip install openai-whisper")
     exit(1)
 
-from whisper.utils import get_writer
 from pydantic import BaseModel
+from whisper.utils import get_writer
+
 
 console = Console()
 
