@@ -2,7 +2,12 @@
 
 ## Prerequisites
 
-TODO: check which versions of Python this works with
+HistoryAIToolkit is confirmed to work with Python 3.10 and 3.11 on recent versions of Mac OSX and Linux. 
+
+!!! Note "If you are on another version of Python or Windows"
+
+    Please try out the project on your platform and let us know how it goes by [opening an issue](https://github.com/historysciencelab/HistoryAIToolkit/issues).
+
 
 ## For most Python users
 
@@ -72,8 +77,10 @@ Once you've installed the project, you can run the command-line interface with:
 │ --help                      Show this message and exit.
 ╰───────────────────────────────────────────────────────────────────────
 ╭─ Commands ────────────────────────────────────────────────────────────
-│ slice                   Slices an audio file into smaller audio files.
-│ transcribe              "Transcribes an audio file into text.
+│ generate-questions    Generates questions from a transcript.
+│ slice                 Slices an audio file into smaller audio files.
+│ transcribe            Transcribes an audio file into text.
+│ version               Lists the package version.
 ╰────────────────────────────────────────────────────────────────────────
 ```
 

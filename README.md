@@ -59,7 +59,7 @@ Sample oral history interviews, some with transcripts we can work with:
 
 ## Getting Started
 
-First install the project using the installation instructions in docs/source/getting_started.rst. Then to use the command-line interface, run this in your terminal: 
+First install the project using the [installation instructions](https://historyaitoolkit.readthedocs.io/en/latest/getting-started/). Then to use the command-line interface, run this in your terminal: 
 
 ```
 hist --help
