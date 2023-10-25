@@ -1,5 +1,5 @@
 site_name: HistoryAIToolKit
-site_url: https://historyaitoolkit.readthedocs.io/
+site_url: https://historyaitoolkit.readthedocs.io/en/latest
 site_description: AI toolkit for professional and amateur historians, and for anyone who wishes to contribute to the recording of history by and for the community.
 repo_url: https://github.com/historysciencelab/HistoryAIToolkit
 theme:
