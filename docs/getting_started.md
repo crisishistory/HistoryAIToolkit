@@ -72,8 +72,10 @@ Once you've installed the project, you can run the command-line interface with:
 │ --help                      Show this message and exit.
 ╰───────────────────────────────────────────────────────────────────────
 ╭─ Commands ────────────────────────────────────────────────────────────
-│ slice                   Slices an audio file into smaller audio files.
-│ transcribe              "Transcribes an audio file into text.
+│ generate-questions    Generates questions from a transcript.
+│ slice                 Slices an audio file into smaller audio files.
+│ transcribe            Transcribes an audio file into text.
+│ version               Lists the package version.
 ╰────────────────────────────────────────────────────────────────────────
 ```
 
