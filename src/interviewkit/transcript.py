@@ -4,11 +4,6 @@ from pathlib import Path
 from rich.console import Console
 
 
-try:
-    import whisper
-except ImportError:
-    print("Please install Whisper: pip install openai-whisper")
-    exit(1)
 
 from pydantic import BaseModel
 from whisper.utils import get_writer
