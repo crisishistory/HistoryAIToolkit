@@ -20,6 +20,7 @@ Types of contributions:
 About contributing:
 
 - [Your First Code Contribution](#your-first-code-contribution)
+- [Passing Checks on GitHub](#passing-checks-on-github)
 - [Styleguides](#styleguides)
 - [Commit Messages](#commit-messages)
 - [Join The Project Team](#join-the-project-team)
@@ -121,7 +122,16 @@ Enhancements include:
 - Read the [documentation]() carefully and find out if the functionality is already covered, maybe by an individual configuration.
 - Perform a [search](https://github.com/historysciencelab/HistoryAIToolkit/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 - Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
-- Major new features should be in their own Python module (also known as a "file"). For example, if you decide to add the AI-powered ability to track dates of events within a transcript, that new feature should be in a new module possibly named `transcript_add_dates.py`.`
+- Major new features should be in their own Python module (also known as a "file"). For example, if you decide to add the AI-powered ability to track dates of events within a transcript, that new feature should be in a new module possibly named `transcript_add_dates.py`.
+
+#### Passing checks on GitHub
+
+In addition to passing tests, all pull requests must be properly formatted. To do that, just run these two commands at the root of the project:
+
+```sh
+ruff check . --fix
+ruff format .
+```
 
 #### How Do I Submit a Good Enhancement Suggestion?
 

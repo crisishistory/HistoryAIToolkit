@@ -1,10 +1,11 @@
 from pathlib import Path
 
 import typer
-from questions import generate_questions_from_transcript
-from slicer import audio_slicing
-from transcript import transcribe_from_paths
 from typing_extensions import Annotated
+
+from .questions import generate_questions_from_transcript
+from .slicer import audio_slicing
+from .transcript import transcribe_from_paths
 
 
 __version__ = "0.0.1"

@@ -1,11 +1,9 @@
 import sys
 from pathlib import Path
 
-from rich.console import Console
-
-
-
+import whisper
 from pydantic import BaseModel
+from rich.console import Console
 from whisper.utils import get_writer
 
 
