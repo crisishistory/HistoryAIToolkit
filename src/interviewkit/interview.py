@@ -1,7 +1,7 @@
 from enum import StrEnum, auto
 
-from interviewee import Interviewee
-from transcript import Transcript
+from .interviewee import Interviewee
+from .transcript import Transcript
 
 
 class Status(StrEnum):

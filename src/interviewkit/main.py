@@ -1,8 +1,7 @@
-
-from interview import Interview
-from interviewee import Gender, Interviewee
-from settings import Settings
-from transcript import Transcript
+from .interview import Interview
+from .interviewee import Gender, Interviewee
+from .settings import Settings
+from .transcript import Transcript
 
 
 settings = Settings()
