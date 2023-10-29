@@ -1,22 +1,44 @@
+<!--start-->
 # Contributing to History AI Toolkit
 
 First off, thanks for taking the time to contribute! ❤️
 
-All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
+All types of contributions are encouraged and valued. Read this page for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
+<!--end-->
+
+## Table of Contents
+
+Types of contributions:
+
+- [Questions](#questions)
+- [Bug Reports](#bug-reports)
+- [Bug Fixes](#bug-fixes)
+- [Documentation](#improving-the-documentation)
+- [Enhancements](#suggesting-enhancements)
+- [Spreading Word](#spreading-word)
+
+About contributing:
+
+- [Your First Code Contribution](#your-first-code-contribution)
+- [Styleguides](#styleguides)
+- [Commit Messages](#commit-messages)
+- [Join The Project Team](#join-the-project-team)
+- [Legal Notices](#legal-notices)
+
+<!--start-->
 
 ## Questions
 
 Before you ask a question:
 
 * Search the internet for answers first. You might find a solution to your problem on Stack Overflow, Reddit, or somewhere else.
-* Search for existing [Issues](/issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. 
+* Search for existing [Issues](https://github.com/historysciencelab/HistoryAIToolkit/issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. 
 * Read the [Documentation](https://historyaitoolkit.readthedocs.io/).
-
 
 If you can't find an answer:
 
 - Ask in [Discord](https://discord.gg/WvqytcHfnD).
-- Open an [Issue](/issues/new).
+- Open an [Issue](https://github.com/historysciencelab/HistoryAIToolkit/issues/new).
 - Provide as much context as you can about what you're running into.
 
 We will then help you as best as we can.
@@ -30,7 +52,7 @@ A good bug report shouldn't leave others needing to chase you up for more inform
 
 - Make sure that you are using the latest version.
 - Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions (Make sure that you have read the [documentation](). If you are looking for support, you might want to check [this section](#i-have-a-question)).
-- To see if other users have experienced (and potentially already solved) the same issue you are having, check if there is not already a bug report existing for your bug or error in the [bug tracker](issues?q=label%3Abug).
+- To see if other users have experienced (and potentially already solved) the same issue you are having, check if there is not already a bug report existing for your bug or error in the [bug tracker](https://github.com/historysciencelab/HistoryAIToolkit/issues?q=label%3Abug).
 - Also make sure to search the internet (including Stack Overflow) to see if users outside of the GitHub community have discussed the issue.
 - Collect information about the bug:
 - Stack trace (Traceback)
@@ -47,7 +69,7 @@ A good bug report shouldn't leave others needing to chase you up for more inform
 
 We use GitHub issues to track bugs and errors. If you run into an issue with the project:
 
-- Open an [Issue](/issues/new). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
+- Open an [Issue](https://github.com/historysciencelab/HistoryAIToolkit/issues/new). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
 - Explain the behavior you would expect and the actual behavior.
 - Please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
 - Provide the information you collected in the previous section.
@@ -97,13 +119,13 @@ Enhancements include:
 
 - Make sure that you are using the latest version.
 - Read the [documentation]() carefully and find out if the functionality is already covered, maybe by an individual configuration.
-- Perform a [search](/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+- Perform a [search](https://github.com/historysciencelab/HistoryAIToolkit/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 - Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
 - Major new features should be in their own Python module (also known as a "file"). For example, if you decide to add the AI-powered ability to track dates of events within a transcript, that new feature should be in a new module possibly named `transcript_add_dates.py`.`
 
 #### How Do I Submit a Good Enhancement Suggestion?
 
-Enhancement suggestions are tracked as [GitHub issues](/issues).
+Enhancement suggestions are tracked as [GitHub issues](https://github.com/historysciencelab/HistoryAIToolkit/issues).
 
 - Use a **clear and descriptive title** for the issue to identify the suggestion.
 - Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
@@ -150,10 +172,14 @@ When contributing to this project, you must agree that you have authored 100% of
 ### Code of Conduct
 
 This project and everyone participating in it is governed by the
-[CONTRIBUTING.md Code of Conduct](blob/master/CODE_OF_CONDUCT.md).
+[CONTRIBUTING.md Code of Conduct](https://github.com/historysciencelab/HistoryAIToolkit/blob/master/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report unacceptable behavior
 to any of the project's core team members.
 
 ### Attribution
 
-This guide is based on the [@audreyfeldroy's Cookiecutter PyPackage contributing instructions](https://github.com/audreyfeldroy/cookiecutter-pypackage/blob/master/CONTRIBUTING.rst) and https://contributing.md/
+This guide is based on
+
+- [@audreyfeldroy's Cookiecutter PyPackage contributing instructions](https://github.com/audreyfeldroy/cookiecutter-pypackage/blob/master/CONTRIBUTING.rst)
+- [contributing.md](https://contributing.md).
+<!--end-->

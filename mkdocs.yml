@@ -20,8 +20,9 @@ markdown_extensions:
 
 plugins:
   - search
-  - include-markdown    
-
+  - include-markdown:
+      start: <!--start-->
+      end: <!--end-->  
 
 nav:
   - Introduction: index.md
