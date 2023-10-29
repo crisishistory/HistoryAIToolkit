@@ -47,7 +47,7 @@ class Interview(object):
     def generate_questions(self, content: str) -> list[str]:
         """generate questions, and return them."""
 
-        #TODO
+        # TODO
         response = None
 
         # Extract and return the generated questions

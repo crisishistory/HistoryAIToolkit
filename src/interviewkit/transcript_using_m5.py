@@ -17,20 +17,25 @@ from whisper.utils import get_writer
 
 console = Console()
 
+
 class Transcript(BaseModel):
     """The Transcript entity represents the transcript of an interview."""
+
     content: str
+
 
 # Load T5 model and tokenizer
 tokenizer = T5Tokenizer.from_pretrained("t5-base")
 model = T5ForConditionalGeneration.from_pretrained("t5-base")
+
+
 def chunk_text(text, max_length):
     """Split the text into chunks of max_length."""
     words = text.split()
     chunks = []
     current_chunk = []
     current_length = 0
-    
+
     for word in words:
         if current_length + len(word) <= max_length:
             current_length += len(word) + 1  # +1 for the space
@@ -39,9 +44,10 @@ def chunk_text(text, max_length):
             chunks.append(" ".join(current_chunk))
             current_chunk = [word]
             current_length = len(word)
-    
+
     chunks.append(" ".join(current_chunk))  # Don't forget the last chunk
     return chunks
+
 
 def generate_questions_for_all_chunks(chunks):
     all_questions = []
@@ -49,6 +55,7 @@ def generate_questions_for_all_chunks(chunks):
         questions = generate_questions(chunk)
         all_questions.append(questions)
     return all_questions
+
 
 def generate_questions(transcript_chunk):
     # Ensure transcript_chunk is a string
@@ -61,8 +68,9 @@ def generate_questions(transcript_chunk):
 
     outputs = model.generate(input_ids)
     questions = tokenizer.decode(outputs[0])
-    
+
     return questions
+
 
 def transcribe_from_paths(source: Path, target: Path) -> None:
     console.print("Loading whisper base model...")
@@ -72,9 +80,9 @@ def transcribe_from_paths(source: Path, target: Path) -> None:
         result = model.transcribe((str(source)), fp16=False)
 
     txt_file_options = {
-        "max_line_width": 50,  
+        "max_line_width": 50,
         "max_line_count": 1,
-        "highlight_words": False,  
+        "highlight_words": False,
     }
 
     console.print("Saving transcript as a .txt file...")
@@ -84,19 +92,19 @@ def transcribe_from_paths(source: Path, target: Path) -> None:
     console.print("Transcript saved to:")
     console.print(f"    [green bold]{target / source.name}.txt[/green bold]")
 
-    transcript_chunk = result['text']
+    transcript_chunk = result["text"]
     max_length = 512
     chunks = chunk_text(transcript_chunk, max_length)
-    
+
     all_questions = generate_questions_for_all_chunks(chunks)
-    
+
     for i, questions in enumerate(all_questions):
         console.print(f"Generated Questions for chunk {i+1}:\n", questions)
 
-    
     # chunks = chunk_text(transcript_chunk, max_length)
     # questions = generate_questions(chunks[0])
     # console.print("Generated Questions:\n", questions)
+
 
 if __name__ == "__main__":
     source = Path(sys.argv[1])
