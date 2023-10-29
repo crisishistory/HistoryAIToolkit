@@ -157,4 +157,3 @@ to any of the project's core team members.
 ### Attribution
 
 This guide is based on the [@audreyfeldroy's Cookiecutter PyPackage contributing instructions](https://github.com/audreyfeldroy/cookiecutter-pypackage/blob/master/CONTRIBUTING.rst) and https://contributing.md/
-<!-- contributing-body-end-->
