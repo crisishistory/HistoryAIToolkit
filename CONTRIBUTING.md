@@ -4,26 +4,6 @@ First off, thanks for taking the time to contribute! ❤️
 
 All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
 
-## Table of Contents
-
-Types of contributions:
-
-- [Questions](#questions)
-- [Bug Reports](#bug-reports)
-- [Bug Fixes](#bug-fixes)
-- [Documentation](#improving-the-documentation)
-- [Enhancements](#suggesting-enhancements)
-- [Spreading Word](#spreading-word)
-
-About contributing:
-
-- [Your First Code Contribution](#your-first-code-contribution)
-- [Styleguides](#styleguides)
-- [Commit Messages](#commit-messages)
-- [Join The Project Team](#join-the-project-team)
-- [Legal Notices](#legal-notices)
-
-
 ## Questions
 
 Before you ask a question:
@@ -109,8 +89,9 @@ The project is currently in its infancy, and we have a huge need for documentati
 ### Enhancements
 
 Enhancements include:
-* Completely new features
-* Minor improvements to existing functionality
+
+- Completely new features
+- Minor improvements to existing functionality
 
 #### Before Submitting an Enhancement
 
@@ -118,7 +99,7 @@ Enhancements include:
 - Read the [documentation]() carefully and find out if the functionality is already covered, maybe by an individual configuration.
 - Perform a [search](/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 - Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
-
+- Major new features should be in their own Python module (also known as a "file"). For example, if you decide to add the AI-powered ability to track dates of events within a transcript, that new feature should be in a new module possibly named `transcript_add_dates.py`.`
 
 #### How Do I Submit a Good Enhancement Suggestion?
 
@@ -176,5 +157,4 @@ to any of the project's core team members.
 ### Attribution
 
 This guide is based on the [@audreyfeldroy's Cookiecutter PyPackage contributing instructions](https://github.com/audreyfeldroy/cookiecutter-pypackage/blob/master/CONTRIBUTING.rst) and https://contributing.md/
-
-
+<!-- contributing-body-end-->
