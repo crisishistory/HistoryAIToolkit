@@ -1,9 +1,9 @@
-import os
 
 from interview import Interview
-from interviewee import Interviewee, Gender
-from transcript import Transcript
+from interviewee import Gender, Interviewee
 from settings import Settings
+from transcript import Transcript
+
 
 settings = Settings()
 
