@@ -36,6 +36,8 @@ from rich.console import Console
 
 # pretty messaging
 console = Console()
+
+
 def error(msg):
     """Print messages using red text"""
     console.print(msg, "bold red")
@@ -46,44 +48,55 @@ if shutil.which("ffmpeg") is None:
     error("  On mac you can: brew install ffmpeg")
     exit(1)
 
-def convert_audio_time_to_msec(audio_time_split_list):
-    """ Converting mins and secs to msecs for pydub computation """
 
-    if(audio_time_split_list):
-        if (len(audio_time_split_list) == 1):
+def convert_audio_time_to_msec(audio_time_split_list):
+    """Converting mins and secs to msecs for pydub computation"""
+
+    if audio_time_split_list:
+        if len(audio_time_split_list) == 1:
             return int(audio_time_split_list[0]) * 60 * 1000
-        elif(len(audio_time_split_list) == 2):
-            return int(audio_time_split_list[0]) * 60 * 1000 + int(audio_time_split_list[1]) * 1000
+        elif len(audio_time_split_list) == 2:
+            return (
+                int(audio_time_split_list[0]) * 60 * 1000
+                + int(audio_time_split_list[1]) * 1000
+            )
         else:
-            error("Error! Audio slice input params invalid. Audio slice supports start/end time in mins or mins:secs format. Please try again with correct input times.")
-            error("Error inside convert_audio_time_to_msec(audio_time_split_list) funtion.")
+            error(
+                "Error! Audio slice input params invalid. Audio slice supports start/end time in mins or mins:secs format. Please try again with correct input times."
+            )
+            error(
+                "Error inside convert_audio_time_to_msec(audio_time_split_list) funtion."
+            )
             exit(1)
     else:
-        error("Error! Audio slice input params invalid. Please try again with correct parameters.")
+        error(
+            "Error! Audio slice input params invalid. Please try again with correct parameters."
+        )
         error("Error inside convert_audio_time_to_msec(audio_time_split_list) funtion.")
         exit(1)
 
+
 def export_filename(audio_time_list):
-    """ Filename for exported file """
-    
+    """Filename for exported file"""
+
     if audio_time_list and len(audio_time_list) == 2:
         return f"{audio_time_list[0]}m{audio_time_list[1]}s"
     elif audio_time_list and len(audio_time_list) == 1:
         return f"{audio_time_list[0]}m"
     else:
-        error("Error! Audio slice input params invalid. Please try again with correct parameters.")
+        error(
+            "Error! Audio slice input params invalid. Please try again with correct parameters."
+        )
         error("Error inside export_filename(audio_time_list) funtion.")
         exit(1)
 
 
 def audio_slicing(path: Path, audio_slice_start_time: str, audio_slice_end_time: str):
-    """ It reads the original audio and uses start and end input time params to generate sliced audio. """
-    
-    with console.status(
-        f"[bold]Slicing {path}...[/bold]", spinner="bouncingBar"
-    ):
+    """It reads the original audio and uses start and end input time params to generate sliced audio."""
+
+    with console.status(f"[bold]Slicing {path}...[/bold]", spinner="bouncingBar"):
         pretty_filename = f"{path.parent.name}/{path.name}"
-        console.log(f"Sampling {pretty_filename}")    
+        console.log(f"Sampling {pretty_filename}")
         # Reading original audio file
         audio = pydub.AudioSegment.from_file(path)
         original_audio_size_ms = audio.duration_seconds * 1000
@@ -95,25 +108,34 @@ def audio_slicing(path: Path, audio_slice_start_time: str, audio_slice_end_time:
         # Converting audio start and end times in msecs
         audio_start_time = convert_audio_time_to_msec(audio_start_time_list)
         audio_end_time = convert_audio_time_to_msec(audio_end_time_list)
-        
+
         # Check if audio start and end times are within original audio size limits
-        if(audio_start_time > original_audio_size_ms or audio_end_time > original_audio_size_ms):
-            error("Error!   Audio slice input params cannot be greater than original audio size.")
+        if (
+            audio_start_time > original_audio_size_ms
+            or audio_end_time > original_audio_size_ms
+        ):
+            error(
+                "Error!   Audio slice input params cannot be greater than original audio size."
+            )
             error("         Please try again with correct parameters.")
             exit(1)
 
         # Audio slicing process
-        console.log(f"Slicing {pretty_filename} from {audio_slice_start_time} to {audio_slice_end_time}")            
+        console.log(
+            f"Slicing {pretty_filename} from {audio_slice_start_time} to {audio_slice_end_time}"
+        )
         audio = audio[audio_start_time:audio_end_time]
-        console.log("Slicing complete")            
+        console.log("Slicing complete")
 
         # Filename for exported file
         audio_start_time_name = export_filename(audio_start_time_list)
         audio_end_time_name = export_filename(audio_end_time_list)
-        samplename = f"sampled-{audio_start_time_name}-{audio_end_time_name}-{path.name}"
-        new_filename =  f"{path.parent}/{samplename}"
-        console.log(f"Exporting file to {samplename}")        
+        samplename = (
+            f"sampled-{audio_start_time_name}-{audio_end_time_name}-{path.name}"
+        )
+        new_filename = f"{path.parent}/{samplename}"
+        console.log(f"Exporting file to {samplename}")
         audio.export(new_filename, format="mp3")
-    
+
     console.print("Export complete!", style="bold")
     console.print(path, style="bold green")
