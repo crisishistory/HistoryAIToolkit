@@ -1,3 +1,6 @@
+format:
+	ruff format .
+
 lint:
-	black .
 	ruff check . --fix
+

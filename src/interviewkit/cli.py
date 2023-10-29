@@ -3,23 +3,26 @@ from pathlib import Path
 
 import typer
 from slicer import audio_slicing
-from transcript import transcribe_from_paths
+from transcript import generate_questions_from_transcript, transcribe_from_paths
 from typing_extensions import Annotated
 
 
-__version__ = '0.0.1'
+__version__ = "0.0.1"
 
 app = typer.Typer()
+
 
 def version_callback(value: bool):
     if value:
         typer.echo(f"HistoryAIToolKit: {__version__}")
         raise typer.Exit()
 
-@app.command("version")    
+
+@app.command("version")
 def main():
     """Checks the package version"""
     version_callback(sys.argv[1:])
+
 
 @app.command()
 def slice(
@@ -40,8 +43,10 @@ def slice(
     """Slices an audio file into smaller audio files."""
     audio_slicing(source, start, duration)
 
+
 @app.command()
-def generate_questions(source: Annotated[
+def generate_questions(
+    source: Annotated[
         Path,
         typer.Argument(
             exists=True,
@@ -52,10 +57,10 @@ def generate_questions(source: Annotated[
             help="Source transcript file",
         ),
     ],
-    target: Path
-    ):
+    target: Path,
+):
     """Generates questions from a transcript."""
-    
+
     questions = generate_questions_from_transcript(source.read_text())
     target.write_text(questions)
 

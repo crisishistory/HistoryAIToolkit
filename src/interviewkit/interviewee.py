@@ -1,6 +1,7 @@
 from enum import StrEnum, auto
 from pydantic import BaseModel, NonNegativeInt
 
+
 class Gender(StrEnum):
     MALE = auto()
     FEMALE = auto()
