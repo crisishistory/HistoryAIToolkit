@@ -1,9 +1,9 @@
-import sys
 from pathlib import Path
 
 import typer
+from questions import generate_questions_from_transcript
 from slicer import audio_slicing
-from transcript import generate_questions_from_transcript, transcribe_from_paths
+from transcript import transcribe_from_paths
 from typing_extensions import Annotated
 
 
@@ -12,16 +12,10 @@ __version__ = "0.0.1"
 app = typer.Typer()
 
 
-def version_callback(value: bool):
-    if value:
-        typer.echo(f"HistoryAIToolKit: {__version__}")
-        raise typer.Exit()
-
-
-@app.command("version")
-def main():
+@app.command()
+def version():
     """Checks the package version"""
-    version_callback(sys.argv[1:])
+    typer.echo(f"HistoryAIToolKit: {__version__}")
 
 
 @app.command()
