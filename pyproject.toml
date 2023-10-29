@@ -24,8 +24,9 @@ dependencies = [
     "pydantic-settings==2.0.3",
     "pydub==0.25.1",
     "rich==13.6.0",
+    "transformers==4.34.0",
     "typer==0.9.0",
-    "yarl==1.9.2",    
+    "yarl==1.9.2"
 ]
 
 [project.optional-dependencies]
@@ -40,6 +41,12 @@ dev = [
 test = [
     "pytest",
     # other test dependencies
+]
+
+docs = [
+    "mkdocs-material",
+    "mkdocs-material[imaging]",
+    "mkdocs-include-markdown-plugin"
 ]
 
 [project.urls]
