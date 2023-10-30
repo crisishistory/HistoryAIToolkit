@@ -1,32 +1,32 @@
 import sys
 from pathlib import Path
 
-from rich.console import Console
-from transformers import T5ForConditionalGeneration, T5Tokenizer
-
-
-try:
-    import whisper
-except ImportError:
-    print("Please install Whisper: pip install openai-whisper")
-    exit(1)
-
+import whisper
 from pydantic import BaseModel
+from rich.console import Console
 from whisper.utils import get_writer
 
 
 console = Console()
+
+try:
+    import transformers
+
+    # Load T5 model and tokenizer
+    tokenizer = transformers.T5Tokenizer.from_pretrained("t5-base")
+    model = transformers.T5ForConditionalGeneration.from_pretrained("t5-base")
+except ImportError:
+    console.print(
+        "Please install transformers: pip install 'historyaitoolkit\[transformers]'",
+        style="bold red",
+    )
+    exit(1)
 
 
 class Transcript(BaseModel):
     """The Transcript entity represents the transcript of an interview."""
 
     content: str
-
-
-# Load T5 model and tokenizer
-tokenizer = T5Tokenizer.from_pretrained("t5-base")
-model = T5ForConditionalGeneration.from_pretrained("t5-base")
 
 
 def chunk_text(text, max_length):

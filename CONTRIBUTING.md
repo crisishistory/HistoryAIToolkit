@@ -133,6 +133,20 @@ ruff check . --fix
 ruff format .
 ```
 
+#### How to run tests
+
+To run the non-LLM tests (fast), run at the project root:
+
+```sh
+pytest tests/code/*.py
+```
+
+To run the tests with LLMs,  run at the project root:
+
+```sh
+pytest tests/llms/*.py
+```
+
 #### How Do I Submit a Good Enhancement Suggestion?
 
 Enhancement suggestions are tracked as [GitHub issues](https://github.com/historysciencelab/HistoryAIToolkit/issues).

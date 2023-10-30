@@ -18,13 +18,11 @@ classifiers = [
 ]
 license = {text = "GNU General Public License v3"}
 dependencies = [
-    "clarifai_grpc==9.9.1",
     "openai-whisper==20230918",
     "pydantic==2.4.2",
     "pydantic-settings==2.0.3",
     "pydub==0.25.1",
     "rich==13.6.0",
-    "transformers==4.34.0",
     "typer==0.9.0",
     "yarl==1.9.2"
 ]
@@ -47,6 +45,14 @@ docs = [
     "mkdocs-material",
     "mkdocs-material[imaging]",
     "mkdocs-include-markdown-plugin"
+]
+
+clarifai_grpc = [
+    "clarifai_grpc==9.9.1"
+]
+
+transformers = [
+    "transformers==4.34.0"
 ]
 
 [project.urls]
