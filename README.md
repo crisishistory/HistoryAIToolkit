@@ -68,4 +68,135 @@ hist --help
 ## Contributors
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/audreyfeldroy">
+            <img src="https://avatars.githubusercontent.com/u/74739?v=4" width="100;" alt="audreyfeldroy"/>
+            <br />
+            <sub><b>Audrey Roy Greenfeld</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/pydanny">
+            <img src="https://avatars.githubusercontent.com/u/62857?v=4" width="100;" alt="pydanny"/>
+            <br />
+            <sub><b>Daniel Roy Greenfeld</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Subramaniam-dot">
+            <img src="https://avatars.githubusercontent.com/u/66780405?v=4" width="100;" alt="Subramaniam-dot"/>
+            <br />
+            <sub><b>SUBRAMANIAM SUBRAMANIAN MURUGESAN</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/danielmaclaren">
+            <img src="https://avatars.githubusercontent.com/u/101112838?v=4" width="100;" alt="danielmaclaren"/>
+            <br />
+            <sub><b>Dtmaclaren</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/kaqmak">
+            <img src="https://avatars.githubusercontent.com/u/7051207?v=4" width="100;" alt="kaqmak"/>
+            <br />
+            <sub><b>Per Lunnemann Hansen</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Bchass">
+            <img src="https://avatars.githubusercontent.com/u/34097574?v=4" width="100;" alt="Bchass"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/VivekKumarKamal">
+            <img src="https://avatars.githubusercontent.com/u/118813447?v=4" width="100;" alt="VivekKumarKamal"/>
+            <br />
+            <sub><b>Vivek Kumar Kamal</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/heymanpreet">
+            <img src="https://avatars.githubusercontent.com/u/22243845?v=4" width="100;" alt="heymanpreet"/>
+            <br />
+            <sub><b>Manpreet Chawla</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/RalphHuber">
+            <img src="https://avatars.githubusercontent.com/u/35894863?v=4" width="100;" alt="RalphHuber"/>
+            <br />
+            <sub><b>Ralph Sinnhuber</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/DominikBalga">
+            <img src="https://avatars.githubusercontent.com/u/77111779?v=4" width="100;" alt="DominikBalga"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/willjos">
+            <img src="https://avatars.githubusercontent.com/u/111782618?v=4" width="100;" alt="willjos"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ZoePosnette">
+            <img src="https://avatars.githubusercontent.com/u/109586022?v=4" width="100;" alt="ZoePosnette"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/Night-Amber3301">
+            <img src="https://avatars.githubusercontent.com/u/99665583?v=4" width="100;" alt="Night-Amber3301"/>
+            <br />
+            <sub><b>Pratibhanu Jarngal</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ProfessorTerrence">
+            <img src="https://avatars.githubusercontent.com/u/145303482?v=4" width="100;" alt="ProfessorTerrence"/>
+            <br />
+            <sub><b>ProfessorTerrence</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Rjchauhan18">
+            <img src="https://avatars.githubusercontent.com/u/113838908?v=4" width="100;" alt="Rjchauhan18"/>
+            <br />
+            <sub><b>Rahul Chauhan</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/raul-testpad">
+            <img src="https://avatars.githubusercontent.com/u/107547903?v=4" width="100;" alt="raul-testpad"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ayushawasthi24">
+            <img src="https://avatars.githubusercontent.com/u/116417909?v=4" width="100;" alt="ayushawasthi24"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ShujiHanma">
+            <img src="https://avatars.githubusercontent.com/u/102284492?v=4" width="100;" alt="ShujiHanma"/>
+            <br />
+            <sub><b>Deluxe.</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
