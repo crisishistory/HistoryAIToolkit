@@ -1,4 +1,4 @@
-name: Project Tests
+name: Project Tests with LLMS
 
 on:
   push:
@@ -31,12 +31,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -e '.[test]'
+          pip install -e '.[clarifai_grpc]'
+          pip install -e '.[transformers]'          
 
       - name: Install ffmpeg
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
-      - name: Run code and non-llm tests 
+      - name: Run code and llm tests
         run: |
-          make test
+          make test_llms
